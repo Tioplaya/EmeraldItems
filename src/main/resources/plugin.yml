@@ -1,0 +1,15 @@
+name: EmeraldItems
+version: '${project.version}'
+main: ru.tioplaya.emeralditems.EmeraldItems
+api-version: '1.20'
+prefix: EmeraldItems
+authors: [Tioplaya]
+description: Its better emerald items plugin.
+website: vk.com/tioplaya
+commands:
+  emeralditems:
+    description: 'Main command'
+    aliases: [eitems]
+    usage: '/eitems <arguments>'
+emeralditems.admin:
+  default: op

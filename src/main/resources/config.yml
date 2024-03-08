@@ -1,0 +1,106 @@
+#General
+Prefix: '&8[&a&lEmeraldItems&8]'
+Config_reloaded: '&7Конфиг успешно перезагружен!'
+Help: '&7Единственная команда плагина - /eitems reload'
+Unknown_command: '&fНеизвестная команда =('
+Not_permission: '&cНет прав!'
+
+#Info
+#ПЛАГИН НЕ ПОДДЕРЖИВАЕТ HEX!!!! да и смысл, брух... эти комманды могут видеть лишь адмэны
+#Названия и максимальный уровень зачарований можно посмотреть здесь:
+#https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html
+#Для корректного удаления зачарований используйте "enchs: []"
+
+#Items
+Helmet:
+  enable: true
+  name: '&a&lИзумрудный шлем'
+  enchs:
+    - 'PROTECTION_EXPLOSIONS:4'
+    - 'PROTECTION_ENVIRONMENTAL:4'
+    - 'THORNS:3'
+    - 'PROTECTION_FIRE:4'
+    - 'PROTECTION_PROJECTILE:4'
+    - 'OXYGEN:3'
+    - 'WATER_WORKER:1'
+Chestplate:
+  enable: true
+  name: '&a&lИзумрудный нагрудник'
+  enchs:
+    - 'PROTECTION_EXPLOSIONS:4'
+    - 'PROTECTION_ENVIRONMENTAL:4'
+    - 'THORNS:3'
+    - 'PROTECTION_FIRE:4'
+    - 'PROTECTION_PROJECTILE:4'
+Leggings:
+  enable: true
+  name: '&a&lИзумрудные поножи'
+  enchs:
+    - 'PROTECTION_EXPLOSIONS:4'
+    - 'PROTECTION_ENVIRONMENTAL:4'
+    - 'THORNS:3'
+    - 'PROTECTION_FIRE:4'
+    - 'PROTECTION_PROJECTILE:4'
+Boots:
+  enable: true
+  name: '&a&lИзумрудные ботинки'
+  enchs:
+    - 'PROTECTION_EXPLOSIONS:4'
+    - 'PROTECTION_ENVIRONMENTAL:4'
+    - 'THORNS:3'
+    - 'PROTECTION_FIRE:4'
+    - 'PROTECTION_PROJECTILE:4'
+    - 'PROTECTION_FALL:4'
+Sword:
+  enable: true
+  name: '&a&lИзумрудный меч'
+  enchs:
+    - 'DURABILITY:3'
+    - 'DAMAGE_ALL:5'
+    - 'KNOCKBACK:2'
+    - 'FIRE_ASPECT:2'
+    - 'LOOT_BONUS_MOBS:3'
+    - 'DAMAGE_UNDEAD:5'
+Axe:
+  enable: true
+  name: '&a&lИзумрудный топор'
+  enchs:
+    - 'DURABILITY:3'
+    - 'DAMAGE_ALL:5'
+    - 'DAMAGE_UNDEAD:5'
+    - 'LOOT_BONUS_BLOCKS:3'
+    - 'DIG_SPEED:5'
+Pickaxe:
+  enable: true
+  name: '&a&lИзумрудная кирка'
+  enchs:
+    - 'DURABILITY:3'
+    - 'LOOT_BONUS_BLOCKS:3'
+    - 'DIG_SPEED:5'
+Shovel:
+  enable: true
+  name: '&a&lИзумрудная лопата'
+  enchs:
+    - 'DURABILITY:3'
+    - 'LOOT_BONUS_BLOCKS:3'
+    - 'DIG_SPEED:5'
+Hoe:
+  enable: true
+  name: '&a&lИзумрудная мотыга'
+  enchs:
+    - 'DURABILITY:3'
+Bow:
+  enable: true
+  name: '&a&lИзумрудый лук'
+  enchs:
+    - 'DURABILITY:3'
+    - 'ARROW_DAMAGE:5'
+    - 'ARROW_KNOCKBACK:2'
+    - 'ARROW_FIRE:1'
+    - 'ARROW_INFINITE:1'
+Rod:
+  enable: true
+  name: '&a&lИзумрудная удочка'
+  enchs:
+    - 'DURABILITY:3'
+    - 'LUCK:3'
