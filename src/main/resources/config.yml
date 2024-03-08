@@ -9,7 +9,6 @@ Not_permission: '&cНет прав!'
 #Названия и максимальный уровень зачарований можно посмотреть здесь:
 #https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html
 #Для корректного удаления зачарований используйте "enchs: []"
-#Любое количество предметов для создания.
 
 #Items
 Helmet: #item
