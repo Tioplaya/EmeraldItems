@@ -1,7 +1,6 @@
 package ru.tioplaya.emeralditems;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
@@ -18,9 +17,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import static org.bukkit.ChatColor.*;
 import static org.bukkit.Material.*;
 
 public final class EmeraldItems extends JavaPlugin implements Listener {
@@ -28,9 +26,11 @@ public final class EmeraldItems extends JavaPlugin implements Listener {
     private void log(String str) {
         Bukkit.getConsoleSender().sendMessage(str);
     }
+
+    ColorizeText text = new ColorizeText();
     @Override
     public void onLoad() {
-        log(ChatColor.GOLD + "EmeraldItems loading...");
+        log(GOLD + "EmeraldItems loading...");
         final File config = new File(this.getDataFolder() + File.separator + "config.yml");
         if (!config.exists()) {
             this.getConfig().options().copyDefaults(true);
@@ -73,38 +73,12 @@ public final class EmeraldItems extends JavaPlugin implements Listener {
     }
     @Override
     public void onEnable() {
-        log(ChatColor.GREEN + "EmeraldItems enabled!");
-        log(ChatColor.DARK_GREEN + "EmeraldItems by Tioplaya");
-    }
-    private String Prefix = colorizeText((String) this.getConfig().get("Prefix"));
-    private final String Not_permission_reload = colorizeText((String) this.getConfig().get("Not_permission"));
-    boolean yep = false;
-    public String colorizeText(String text) {
-        if (text == null) {
-            yep = false;
-            return text;
-        }
-        if (text.matches("&*")) {
-            yep = true;
-        }
-        Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
-        Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
-            String hexCode = text.substring(matcher.start(), matcher.end());
-            String replaceSharp = hexCode.replaceAll("#", "x");
-            char[] ch = replaceSharp.toCharArray();
-            StringBuilder builder = new StringBuilder();
-            for (char c : ch)
-                builder.append("&").append(c);
-            text = text.replaceAll(hexCode, builder.toString());
-            matcher = pattern.matcher(text);
-        }
-        if (!yep) {
-            text = text.replaceAll("&", "§");
-        }
-        return ChatColor.translateAlternateColorCodes('&', text); //с помощью NamedTextColor переделать всё это
+        log(GREEN + "EmeraldItems enabled!");
+        log(DARK_GREEN + "EmeraldItems by Tioplaya");
     }
 
+    private String Prefix = text.colorizeText((String) this.getConfig().get("Prefix"));
+    private final String Not_permission_reload = text.colorizeText((String) this.getConfig().get("Not_permission"));
     public void item(Material item_id, String enchants_path, String line1, String line2, String line3, String name_path, String key_path) {
         final List<String> enchList = this.getConfig().getStringList(enchants_path);
         final HashMap<Enchantment, Integer> enchIntMap = new HashMap<>();
@@ -124,7 +98,7 @@ public final class EmeraldItems extends JavaPlugin implements Listener {
 
         final ItemStack item = new ItemStack(item_id);
         final ItemMeta meta = item.getItemMeta();
-        String name = colorizeText((String) this.getConfig().get(name_path));
+        String name = text.colorizeText((String) this.getConfig().get(name_path));
 
         meta.setDisplayName(name);
         item.setItemMeta(meta);
@@ -165,7 +139,6 @@ public final class EmeraldItems extends JavaPlugin implements Listener {
             recipe.setIngredient('W', STRING);
         }
         Bukkit.addRecipe(recipe);
-
     }
     //сделать создание такого добра свободным. сколько угодно и как угодно
 
@@ -209,29 +182,29 @@ public void e_rod() {
             return true;
         }
         if (args.length == 0 && sender.hasPermission("emeralditems.admin")) {
-            String Help = colorizeText((String) this.getConfig().get("Help"));
+            String Help = text.colorizeText((String) this.getConfig().get("Help"));
             sender.sendMessage(Prefix + " " + Help);
             return true;
         }
         if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("emeralditems.reload")) {
             this.reloadConfig();
             onLoad();
-            String ConfigReloaded = colorizeText((String) this.getConfig().get("Config_reloaded"));
+            String ConfigReloaded = text.colorizeText((String) this.getConfig().get("Config_reloaded"));
             sender.sendMessage(Prefix + " " + ConfigReloaded);
             return true;
         }
         if (!args[0].equalsIgnoreCase("reload") && args.length > 1) {
-            String NotPermission = colorizeText((String) this.getConfig().get("Not_permission"));
+            String NotPermission = text.colorizeText((String) this.getConfig().get("Not_permission"));
             sender.sendMessage(Prefix + NotPermission);
             return false;
         }
-        String UnknownCommand = colorizeText((String) this.getConfig().get("Unknown_command"));
+        String UnknownCommand = text.colorizeText((String) this.getConfig().get("Unknown_command"));
         sender.sendMessage(Prefix + " " + UnknownCommand);
         return true;
     }
 
     @Override
     public void onDisable() {
-        log(ChatColor.RED + "EmeraldItems disabled!");
+        log(RED + "EmeraldItems disabled!");
     }
 }
